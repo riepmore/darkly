@@ -1,0 +1,14 @@
+http://192.168.57.12/index.php?page=survey#
+
+Ici, nous avons un tableau avec une colonne "Grade" que nous pouvons modifier de 1 à 10 via un select.
+Une fois modifié, javascript envoie le formulaire automatiquement.
+
+Il est possible de modifier directement la valeur des options depuis le html comme ceci:
+// <option value="10000000000000000">4</option>
+// au lieu de
+// <option value="4">4</option>
+
+Ce faisant, le flag s'affiche.
+
+Le bonne pratique est tout simplement de vérifier avant d'envoyer un formulaire si la valeur est correcte,
+puis de le vérifier côté serveur aussi.

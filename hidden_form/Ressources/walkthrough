@@ -1,0 +1,9 @@
+http://192.168.57.12/?page=recover#
+
+Permet de récupérer son mot de passe perdu, cependant il n'y a qu'un bouton "submit".
+En inspectant le html, nous pouvons apercevoir la ligne:
+    <input type="hidden" name="mail" value="webmaster@borntosec.com" maxlength="15">
+
+Il sagit d'une entrée de formulaire "hidden" qui n'apparait pas graphiquement sur le formulaire mais qui est quand même envoyé lors du submit.
+Cependant, même si il est hidden nous pouvons modifier la valeur avant l'envoi, cela n'est en rien bloquant.
+Dans ce genre de cas la, il ne faut pas mettre de input en hidden mais le spécifier lors de la requête.

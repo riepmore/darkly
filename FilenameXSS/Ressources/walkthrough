@@ -1,0 +1,16 @@
+http://192.168.57.12/?page=upload#
+
+Ici nous avons une image a upload.
+
+Il faut noter que si le fichier ne termine pas par .jpg ou .jpeg, il nous retournera "Your image was not uploaded."
+Envoyer un fichier .php.jpg marche mais ce n'est pas important ici.
+
+Quand un fichier à été uploader, il nous affiche: "/tmp/image.jpg succesfully uploaded."
+
+Il faut noter que le chemin est indiqué "/tmp/" ainsi que le nom du fichier.
+Étant donné que quasiment aucun controle n'est fait sur le nom du fichier ("hormis pour les \ et les balises PHP"),
+nous pouvons tout de même rajouter au nom du fichier "../" pour que l'emplacement du fichier soit modifié et ainsi
+le placer ailleurs dans le filesystem.
+
+La solution serait tout simplement de vérifier le nom du fichier via un regex par exemple, ainsi que de ne pas afficher
+le nom du fichier après upload. Un simple "Votre fichier à été uploader" suffit amplement.
