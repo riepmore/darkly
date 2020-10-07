@@ -13,4 +13,4 @@ nous pouvons tout de même rajouter au nom du fichier "../" pour que l'emplaceme
 le placer ailleurs dans le filesystem.
 
 La solution serait tout simplement de vérifier le nom du fichier via un regex par exemple, ainsi que de ne pas afficher
-le nom du fichier après upload. Un simple "Votre fichier à été uploader" suffit amplement.
+le nom du fichier après upload. Un simple "Votre fichier à été uploadé" suffit amplement.
