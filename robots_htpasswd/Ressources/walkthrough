@@ -1,0 +1,13 @@
+http://192.168.57.12/whatever/
+
+En affichant le robots.txt: http://192.168.57.12/robots.txt
+nous pouvons voir qu'il autorise l'accès à 2 URLS dont /whatever.
+
+Dans whatever, nous pouvons voir le fichier .htpasswd contenant ceci:
+root:8621ffdbc5698829397d97767ac13db3
+Cela ressemble à une ligne du fichier /etc/passwd.
+
+C'est tout simplement le MD5 de "dragon".
+
+Dans le robots.txt, il faut faire attention sur ce qu'il faut mettre,
+et surtout, il faut protéger l'accès de certains fichiers tels que htpasswd.
