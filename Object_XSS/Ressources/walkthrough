@@ -1,0 +1,9 @@
+In this exploit we have a page like so index.php?page=media&src=nsa
+
+and with a little bit of testing we found that src=nsa is put in object in html, so we change nsa for base64 like so http://10.211.55.61/?page=media&src=data:text/html;base64,PHNjcmlwdD5hbGVydCgncHduZCcpPC9zY3JpcHQ+
+
+PHNjcmlwdD5hbGVydCgncHduZCcpPC9zY3JpcHQ+ is <script>alert('pwnd')</script>
+
+and we got the flag
+
+the solution to protect this kind of flaw is to sanitize parameters and check if its a legitimate param
