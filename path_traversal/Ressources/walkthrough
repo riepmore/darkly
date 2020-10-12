@@ -1,0 +1,7 @@
+http://192.168.57.12/?page=../../../../../../../../../../../../../../etc/passwd
+
+Ici, en utilisant un path traversal, le flag s'affiche.
+On peut utiliser cette technique pour acceder à des fichiers sensibles comme ici, /etc/passwd.
+
+Pour se protéger de cela, il faut vérifier ce qui est passé à la variable
+page pour être sûr que ce n'est que ce que l'on attend.
