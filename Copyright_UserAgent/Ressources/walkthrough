@@ -1,0 +1,15 @@
+http://192.168.57.12/index.php?page=e43ad1fdc54babe674da7c7b8f0127bde61de3fbe01def7d00f151c2fcca6d1c
+
+Ici en regardant le code source de la page nous pouvons voir une longue série de commentaires nous indiquant ceci:
+You must cumming from : "https://www.nsa.gov/" to go to the next step
+
+Donc en faisant un curl avec --referer:
+➜  ~ curl --referer "https://www.nsa.gov/" http://192.168.57.12/index.php\?page\=e43ad1fdc54babe674da7c7b8f0127bde61de3fbe01def7d00f151c2fcca6d1c
+
+Il nous dit ceci: 
+Let's use this browser : "ft_bornToSec". It will help you a lot.
+
+Ce qui nous donne:
+➜  ~ curl --referer "https://www.nsa.gov/" --user-agent "ft_bornToSec" http://192.168.57.12/index.php\?page\=e43ad1fdc54babe674da7c7b8f0127bde61de3fbe01def7d00f151c2fcca6d1c
+
+Ensuite le flag s'affiche en haut du curl.

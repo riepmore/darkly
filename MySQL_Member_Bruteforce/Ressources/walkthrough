@@ -1,0 +1,19 @@
+http://192.168.57.12/index.php?page=signin
+
+Dans la base de données MySQL nous avons ceci:
+
+Database: Member_Brute_Force
+Table: db_default
+[2 entries]
++----+-------------------------------------------+----------+
+| id | password                                  | username |
++----+-------------------------------------------+----------+
+| 1  | 3bf1114a986ba87ed28fc1b5884fc2f8 (shadow) | root     |
+| 2  | 3bf1114a986ba87ed28fc1b5884fc2f8 (shadow) | admin    |
++----+-------------------------------------------+----------+
+
+Il sagit des comptes permettant de se connecter sur la page SignIn, le mot de passe est un simple MD5.
+
+En se connectant sur la page (root:shadow ou admin:shadow), le flag s'affiche.
+
+Pour se protéger de cela, une chiffrement plus puissant ainsi qu'un mot de passe plus compliqué serait nécessaire.
