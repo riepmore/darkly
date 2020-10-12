@@ -1,0 +1,9 @@
+En regardant les cookies, nous avons I_am_admin avec cette valeur: 
+68934a3e9455fa72420237eb05902327
+
+Il sagit du MD5 de "false"
+
+En mettant le MD5 de "true" qui est:
+b326b5062b2f0e69046810717534cb09
+
+Le flag s'affiche après avoir rechargé la page.
