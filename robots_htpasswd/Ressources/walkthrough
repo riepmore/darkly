@@ -11,3 +11,5 @@ C'est tout simplement le MD5 de "dragon".
 
 Dans le robots.txt, il faut faire attention sur ce qu'il faut mettre,
 et surtout, il faut protéger l'accès de certains fichiers tels que htpasswd.
+
+Du coup en utilisant les identifiants root:dragon sur la page /admin on peut trouver le flag
