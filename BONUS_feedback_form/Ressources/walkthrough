@@ -1,6 +1,7 @@
+En cliquant sur LEAVE A FEEDBACK sur la homepage nous arrivons ici:
 http://192.168.57.12/?page=feedback
 
-Ici nous pouvons laisser un commentaire via 2 formulaires: Name et Message.
+En complément de feedback_form, nous avons réussi a passer la "protection" affichant le flag pour creer un vrai exploit.
 
 En essayant une injection XSS sur message, j'ai vu qu'il y avait bien un contrôle
 de ce qui était envoyé: Les balises disparaissent, etc.
@@ -19,7 +20,10 @@ Ici une simple alert() n'est en rien efficace, mais ce qui est possible de faire
 de redirigé ce cookie sur un autre site de l'attaquant pour le récupérer de façon
 transparente pour l'utilisateur.
 
-Pour se protéger de ça, il est important de "cleaner" ce que l'utilsateur envoie au serveur
+La solution pour se proteger de ce genre d'exploit ici est la même que pour feedback-form, a savoir:
+
+***
+Il est important de "cleaner" ce que l'utilsateur envoie au serveur
 avant de le mettre en base, puis de le réafficher.
 Il est possible de prendre en compte les caractères pouvant étre sujets à une
 injection (< > " ') en les transformant en caractère affichable par html "
@@ -30,3 +34,4 @@ injection (< > " ') en les transformant en caractère affichable par html "
 " ---> &quot;
 
 ' ---> &apos;
+***

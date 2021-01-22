@@ -1,6 +1,7 @@
+Sur la page SIGN IN
 http://192.168.57.12/index.php?page=signin
 
-Dans la base de données MySQL nous avons ceci:
+Grace a l'exploitation du SQL sur la page MEMBERS, nous pouvons voir que dans la BDD nous avons ceci:
 
 Database: Member_Brute_Force
 Table: db_default

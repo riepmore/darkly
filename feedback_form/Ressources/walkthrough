@@ -1,1 +1,16 @@
-sur la page http://10.211.55.61/index.php?page=feedback j'ai mis un "<" dans un des 2 inputs et j'ai eu le flag. yay.
+Sur la page LEAVE A FEEDBACK
+http://10.211.55.61/index.php?page=feedback
+En mettant un "<" dans les 2 inputs et le flag s'affiche.
+
+Pour se protéger de ça, il est important de "cleaner" ce que l'utilsateur envoie au serveur
+avant de le mettre en base, puis de le réafficher.
+Il est possible de prendre en compte les caractères pouvant étre sujets à une
+injection (< > " ') en les transformant en caractère affichable par html "
+< ---> &lt;
+
+> ---> &gt;
+
+" ---> &quot;
+
+' ---> &apos;
+

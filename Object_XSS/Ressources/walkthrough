@@ -1,9 +1,13 @@
+En cliquant sur l'image de la NSA sur la homepage:
 In this exploit we have a page like so index.php?page=media&src=nsa
 
-and with a little bit of testing we found that src=nsa is put in object in html, so we change nsa for base64 like so http://10.211.55.61/?page=media&src=data:text/html;base64,PHNjcmlwdD5hbGVydCgncHduZCcpPC9zY3JpcHQ+
+Apres avoir fait plusieurs tests sur l'URL (src=nsa) nous nous sommes rendu compte que 'nsa' est rendu par la suite dans le html,
+donc nous pouvons injecter du code comme ceci:
+http://192.168.56.101/?page=media&src=data:text/html;base64,PHNjcmlwdD5hbGVydCgncHduZCcpPC9zY3JpcHQ+
 
-PHNjcmlwdD5hbGVydCgncHduZCcpPC9zY3JpcHQ+ is <script>alert('pwnd')</script>
+PHNjcmlwdD5hbGVydCgncHduZCcpPC9zY3JpcHQ+ correspond a <script>alert('pwnd')</script>
 
-and we got the flag
+Puis nous avons le flag
 
-the solution to protect this kind of flaw is to sanitize parameters and check if its a legitimate param
+La solution ici serait de proteger ce genre d'injection en faisant un clean des parametres (enlever les caracteres non alphanumeriques par exemple)
+et de regarder si le parametre fourni est legitime et correspond au besoin.
