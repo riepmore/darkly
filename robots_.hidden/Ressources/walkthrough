@@ -5,18 +5,18 @@ Dans chaques dossiers nous avons un README contenant des informations type "Non 
 
 Nous supposons donc qu'un README doit contenir le flag, cependant cela fait environ 20 000 README à regarder.
 
-Pour commencer, nous aovns tout simplement télécharger tout le répertoire avec wget:
+Pour commencer, nous avons tout simplement télécharger tout le répertoire avec wget:
     wget -r -l100 -H -t1 -N -np -erobots=off 192.168.57.12/.hidden/
 
 Puis, nous avons mis tous les README dans un seul fichier:
     find . -name 'README' -exec cat {} \; > ALL_README.txt
 
-Ensuite, nous avons afficher le fichier en supprimant les lignes redondante
+Ensuite, nous avons affiché le fichier en supprimant les lignes redondantes
     cat all.txt | grep -v -e "Demande" -e "Toujours" -e "aide" -e "toujours"
 
 Ce qui nous affiche le flag: 99dde1d35d1fdd283924d84e6d9f1d820
 
-Pour retrouver le répertoire du flag, un simple grep sur celui ci suffit:
+Pour retrouver le répertoire du flag, un simple grep sur celui-ci suffit:
     grep -r "99dde1d35d1fdd283924d84e6d9f1d820" .
 
 Ce qui donne ce répertoire:
