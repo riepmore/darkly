@@ -16,4 +16,4 @@ If you read this just use this md5 decode lowercase then sha256 to win this flag
 
 Ce qui nous donne albatroz puis le flag via sha256.
 
-Le moyen de protéger cette injection est la même que pour le 1er.
+Le moyen de protéger cette injection est la même que pour MySQL_injection.
