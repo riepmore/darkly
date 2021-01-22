@@ -1,1 +1,4 @@
-In all the pages there is button to redirect to facebook twitter and instagram, by changing site parameter to anything else we get the flag
+Dans toutes les pages, dans le footer, il y a les boutons pour rediriger vers Facebook, Twitter et Instagram
+L'URL est construit comme suit : http://10.211.55.70/index.php?page=redirect&site=facebook
+
+Il suffit de remplacer le parametre "site" par autre chose pour obtenir le flag
